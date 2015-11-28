@@ -1,0 +1,23 @@
+
+.login{
+  width: 60%;
+  padding: 6%;
+  margin: 0 auto;
+  margin-top: 10%;
+  text-align: center;
+  h1{
+    font-style: italic;
+  }
+  input{
+    width: 100%;
+    margin-top: 5%;
+    font-size: 1.6em;
+    padding: 2.5%;
+    &.button{
+      width: 60%;
+      text-transform: uppercase;
+      color: #49628a;
+      cursor: pointer;
+    }
+  }
+}

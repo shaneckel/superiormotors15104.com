@@ -1,0 +1,128 @@
+header.feature
+  section.content
+    figure.main
+      div.svg-container
+        img.svg-content(ng-src="../img/superiormotors.png" alt="superior motors logomark")
+      h2 community driven
+    h1 summer 2015
+    
+article.welcome.skewleft
+  section.mainswipe(mainswipe ng-controller="swipeCtrl"  )
+    aside.next
+      button.arrow.next-button(href="#" ng-click="prevSlide()") next
+    div.contain(ng-style="figureStyle()")
+      figure.swipe-animation(ng-style="activeStyle()")
+        div( 
+          ng-repeat="slide in slides"
+          ng-style="imageStyle()"
+          swipe) 
+          img(ng-src="{{slide.image}}" nonDraggableImage)
+    aside.prev
+      button.arrow.prev-button(href="#" ng-click="nextSlide()") prev
+
+  section.content
+    h1 Superior Motors
+    p Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of #[a.inlineorange(ui-sref="kevin") Chef Sousa].
+
+article.farm.skewright: section.content
+  h1 braddock farms
+  p A walk from our doorstep.
+
+article.sourcing.skewleft: section.content
+  h1 sourcing and resources
+  p Superior Motors will locally source the majority of produce and animals that we use. Taking full advantage of our partnership with #[a.inlineblue(href="http://www.growpittsburgh.org/") Grow Pittsburgh] and Braddock Farms, as well as a commercial, rooftop greenhouse with attached 4000 square foot raised bed garden. In addition we have an on site award winning apiary, community bread oven and housing – if needed for culinary, farming and educational interns and externs – as well as the growing list of guest instructors from around the country who would like to participate in this one of a kind project.
+
+article.training.skewright: section.content
+  h1 job training program
+  p We will provide a job training program, unlike any in the region – free of charge. One which will introduce participants to the  urban agriculture and world class culinary/restaurant  experience and skills necessary to excel in these fields.
+
+
+//- article.signup.skewright: section.content
+//-   h1 subscribe to our mailing list
+//-   div#mc_embed_signup
+//-     form(action="//shaneckel.us9.list-manage.com/subscribe/post?u=691eeb7c0e9542392bad47a59&amp;id=378644598d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
+//-       div#mc_embed_signup_scroll
+//-         div.mc-field-group
+//-           label(for="mce-EMAIL") Email Address  
+//-           input(type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL")
+//-         div.mc-field-group
+//-           label(for="mce-FNAME") First Name
+//-           input(type="text" value="" name="FNAME" class="" id="mce-FNAME")
+//-         div.mc-field-group
+//-           label(for="mce-LNAME") Last Name
+//-           input(type="text" value="" name="LNAME" class="" id="mce-LNAME")
+//-         div#mce-responses
+//-           div#mce-error-response.response(style="display:none")
+//-           div#mce-success-response.response(style="display:none")
+//-         div(style="position: absolute; left: -5000px;"): input(type="text" name="b_691eeb7c0e9542392bad47a59_378644598d" tabindex="-1" value="")
+//-         div: input(type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe")
+
+
+article.location.skewright
+  figure.map
+  section.content
+    h1 location
+    aside
+      h2.main: a.linkbutton(href="https://www.google.com/maps/place/1215+Braddock+Ave,+Braddock,+PA+15104/") 1215 Braddock Ave 
+      p Braddock, Pennsylvania
+    p Parking is available at our building. 
+    p Located at the former site of one of the first indoor Chevrolet dealerships in the country.
+
+//- article.articles.skewleft
+//-   section.content
+//-     h1 Articles
+//-     article
+//-       h2 Construction
+//-       date November 22nd 
+//-     article
+//-       h2 Braddock Youth
+//-       date November 22nd 
+//-     article
+//-       h2 Available Ingredients In Braddock’s Backyard.
+//-       date November 22nd 
+//-   button.badge view all articles
+
+article.social.skewleft
+  section.content
+    div.twitter(ng-controller="twitterCtrl")
+      h1 twitter
+      div(ng-repeat="tweet in tweets")
+        p swag {{ tweet }}
+        div(ng-bind-html="tweet") 
+        
+      a.linkbutton(href="https://twitter.com/SM15104") follow our twitter 
+
+    div.instagram(ng-controller="instagramCtrl")
+      h1 instagram
+      div.grams
+        a(ng-repeat="gram in grams" href="{{gram.link}}")
+          figure 
+            img(ng-src="{{gram.image}}")
+            h3(ng-if="gram.caption !== ' '") {{gram.caption}}
+          p {{gram.date | date:"MMMM d, y"}} 
+      a.linkbutton(href="https://instagram.com/sousapgh/") follow our instagram
+
+//- article.events.skewright
+//-   section.content
+//-     h1 publications
+//-     article
+//-       h2 An Introductory Dinner
+//-       date November 22nd 
+//-       p Come enjoy a meal and celebrate the opening of braddocks new restaurant. 
+//-         a(href='#') read more  
+//-     article
+//-       h2 Winter Harvest Kickstarter Dinner
+//-       date November 22nd 
+//-       p Come enjoy a meal and celebrate the opening of braddocks new restaurant. 
+//-         a(href='#') read more  
+//-     article
+//-       h2 Winter Harvest Kickstarter Dinner
+//-       date November 22nd 
+//-       p Come enjoy a meal and celebrate the opening of braddocks new restaurant. 
+//-         a(href='#') read more
+//-   button.badge(ui-sref="events") view all events
+
+
+footer
+  p superior motors 2015 |
+    a(href="https://www.kickstarter.com/projects/379429428/superior-motors-community-restaurant-and-farm-ecos")  kickstarter campaign

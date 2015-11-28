@@ -1,0 +1,89 @@
+
+// angular animation
+
+.my-animation {
+  opacity: 1;
+}
+.my-animation.ng-hide {
+  opacity: 0;
+}
+.my-animation.ng-hide-add,
+.my-animation.ng-hide-remove {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+
+.slide.ng-enter, .slide.ng-leave {
+  position: relative;
+  background: inherit;
+  -ms-transition: .7s ease-in-out;
+  -webkit-transition: .7s ease-in-out;
+  transition: .7s ease-in-out;
+  opacity: 1;
+}
+
+.slide.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.slide.ng-enter, .slide.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+  position: absolute;
+  color: #999;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: orange;
+  opacity: 0.7;
+  border-radius: 50%;
+  border: 2px solid #111;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+main.ui-view{
+  animation-name: enteranim;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: .3s;
+  opacity: 1;
+  width: 100%;
+  z-index: 22;
+  &.ng-enter, &.ng-enter-active{
+    z-index: 30;
+    position: fixed;
+  }
+  &.ng-leave, &.ng-leave-active{
+    z-index: 0;
+    position: absolute;
+    animation-name: leaveanim;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .1s;
+  }
+}
+@keyframes enteranim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;  
+  }
+}
+@keyframes leaveanim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;  
+  }
+}

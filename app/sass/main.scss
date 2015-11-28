@@ -1,0 +1,13 @@
+@import 'reset';
+@import 'vars';
+@import 'animations';
+@import 'feature';
+@import 'home';
+
+
+footer{
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1em;
+  color: $darkblue;
+}
