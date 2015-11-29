@@ -113,12 +113,13 @@ function twitterCtrl($scope, $resource, $sce ) {
       }
  
       angular.forEach(res, function (tweets) {
-        $scope.tweets.push({
-          tweet : $sce.trustAsHtml(tweets.oEmbed.html
+        console.log(tweets.oEmbed.html);
+        $scope.tweets.push( 
+          tweets.oEmbed.html
             .replace('&mdash; ', "<h3>")
             .replace(') <a', "</em></h3><a")
-            .replace(' (@', "<em>@"))
-        });
+            .replace(' (@', "<em>@")
+        );
       });
     });
   }

@@ -10,6 +10,12 @@
   background-position: top;
   padding-bottom: 1.6em;
   z-index: 10;
+  .svg-container{
+    margin: 5em 0 3em;
+    @media #{$phone} {
+      margin: 3em 0;
+    }
+  }
   figure.main{
     display: box;
     display: flex;

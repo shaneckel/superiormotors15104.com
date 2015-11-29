@@ -29,8 +29,8 @@ a.inlineorange{
   color:  $brightorange;
   &:hover{
     transition: $fast;
-    border-bottom: .2em solid $blue;
-    color: $blue;
+    border-bottom: .2em solid $darkorange;
+    color: $brightorange;
   }
 }
 a.inlineblue{

@@ -1,10 +1,11 @@
+
 header.feature
   section.content
-    figure.main
-      div.svg-container
-        img.svg-content(ng-src="../img/superiormotors.png" alt="superior motors logomark")
-      h2 community driven
-    h1 summer 2015
+    //- figure.main
+    div.svg-container
+      img.svg-content(ng-src="../img/superiormotors-update.svg" alt="superior motors 15104")
+      //- h2 community driven
+    //- h1 Superior Motors
     
 article.welcome.skewleft
   section.mainswipe(mainswipe ng-controller="swipeCtrl"  )
@@ -22,7 +23,7 @@ article.welcome.skewleft
 
   section.content
     h1 Superior Motors
-    p Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of #[a.inlineorange(ui-sref="kevin") Chef Sousa].
+    p Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of #[a.inlineorange(ui-sref="kevin") Chef Kevin Sousa].
 
 article.farm.skewright: section.content
   h1 braddock farms
@@ -30,7 +31,7 @@ article.farm.skewright: section.content
 
 article.sourcing.skewleft: section.content
   h1 sourcing and resources
-  p Superior Motors will locally source the majority of produce and animals that we use. Taking full advantage of our partnership with #[a.inlineblue(href="http://www.growpittsburgh.org/") Grow Pittsburgh] and Braddock Farms, as well as a commercial, rooftop greenhouse with attached 4000 square foot raised bed garden. In addition we have an on site award winning apiary, community bread oven and housing – if needed for culinary, farming and educational interns and externs – as well as the growing list of guest instructors from around the country who would like to participate in this one of a kind project.
+  p Superior Motors will locally source the majority of produce and animals that we use. Taking full advantage of our partnership with #[a.inlineorange(href="http://www.growpittsburgh.org/") Grow Pittsburgh] and Braddock Farms, as well as a commercial, rooftop greenhouse with attached 4000 square foot raised bed garden. In addition we have an on site award winning apiary, community bread oven and housing – if needed for culinary, farming and educational interns and externs – as well as the growing list of guest instructors from around the country who would like to participate in this one of a kind project.
 
 article.training.skewright: section.content
   h1 job training program
@@ -87,7 +88,6 @@ article.social.skewleft
     div.twitter(ng-controller="twitterCtrl")
       h1 twitter
       div(ng-repeat="tweet in tweets")
-        p swag {{ tweet }}
         div(ng-bind-html="tweet") 
         
       a.linkbutton(href="https://twitter.com/SM15104") follow our twitter 
