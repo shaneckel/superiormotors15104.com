@@ -7,7 +7,7 @@ header.feature.secondary
 
 
 article.articles.skewleft.inside(ng-controller="getPrisArticle"): section.content
-  date {{swankin[0].date | date:'MMMM dd' }}
+  date {{swankin[0].date | date:'MMMM dd, y' }}
   h1 {{swankin[0].title}}
   div(ng-bind-html="swankin[0].body") 
   img(ng-if="swankin[0].image !== ''" src="{{swankin[0].image}}")

@@ -9,7 +9,7 @@ article.articles.skewleft: section.content(ng-controller="prisCtrl")
   h1 articles
   article(ng-repeat="article in articles | limitTo:20")
     h2 {{article.title}}
-    date {{article.date | date:'MMMM dd' }}
+    date {{article.date | date:'MMMM dd, y' }}
     p {{article.body}} 
       a(ui-sref="article({'articleId':'{{article.link}}'})") read more
 
