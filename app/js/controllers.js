@@ -90,7 +90,6 @@ function getPrisArticle($scope, $resource, $sce,$stateParams) {
       if(res[0].data.fragments['articles.image']){
         image = res[0].data.fragments['articles.image'].url || {};
       }
-      console.log(image);
       // if(typeof res[0].data.fragments['articles.image'].value.main.url  ){
       //   image = ''
       //   console.log("swag");
@@ -105,7 +104,6 @@ function getPrisArticle($scope, $resource, $sce,$stateParams) {
         title: res[0].data.fragments['articles.title'].value,
         image: image
       });
-      console.log($scope.swankin);
     });
   }
   getArticle();
