@@ -8,6 +8,6 @@ module.exports = {
   },
   instagram : {
     client_id: 'd7b089acc3e34a0fb53f0c521dda277b',
-    client_secret: 'b632101265a742ed99cff13c3a9dd528'
+    client_secret: '9fffa21fdfcb4720bd88e6342df21206'
   }
 }

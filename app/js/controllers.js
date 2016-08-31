@@ -6,7 +6,7 @@ module.exports = angular.module('app.controllers', ['ngResource', 'ngSanitize'])
 
 /*@ngInject*/
 function swipeCtrl($scope ) {
-  
+
   if(window.screen.width < 768){
     $scope.slides = [
       {image: '/img/swipe/swipe1_s.jpg'},
@@ -40,7 +40,7 @@ function swipeCtrl($scope ) {
       {image: '/img/swipe/swipe12_l.jpg'},
       {image: '/img/swipe/swipe13_l.jpg'},
       {image: '/img/swipe/swipe14_l.jpg'}
-    ]; 
+    ];
   }
 
   $scope.currentIndex = 0;
@@ -71,35 +71,83 @@ function kevinCtrl() {
 }
 
 
-/*@ngInject*/
-function instagramCtrl($scope, $resource ) {
 
-  function getGrams(){
-    $scope.gram = $resource('/api/instagram/');
-    $scope.gram.query( { }, function (res) {      
-      $scope.grams = [];
-      angular.forEach(res, function (grams) {
-        var gramtext = "";
-        if(grams.caption){
-          gramtext = grams.caption.text.substring(0, 50) + "...";
-        }
-        var gram =  { 
-          'caption' : gramtext, 
-          'link' : grams.link, 
-          'image' : grams.images.low_resolution.url,
-          'date' : (grams.created_time * 1000)
-        };
-        $scope.grams.push(gram);
+/*@ngInject*/
+function getPrisArticle($scope, $resource, $sce,$stateParams) {
+  // console.log($stateParams)
+  // console.log($stateParams.articleId)
+  function getArticle($q) {
+
+
+    $scope.pris = $resource('/api/pris/' + $stateParams.articleId, {});
+    $scope.pris.query( {}, function (res) {
+      // console.log(res[0]);
+
+      if( angular.isUndefined() ) {
+        $scope.swankin = [];
+      }
+      var image = '';
+      if(res[0].data.fragments['articles.image']){
+        image = res[0].data.fragments['articles.image'].url || {};
+      }
+      console.log(image);
+      // if(typeof res[0].data.fragments['articles.image'].value.main.url  ){
+      //   image = ''
+      //   console.log("swag");
+      // }else{
+      //   console.log("swank");
+      //   // image = res[0].data.fragments['articles.image'].value.main.url;
+      // }
+
+      $scope.swankin.push({
+        date: res[0].data.fragments['articles.date'].value,
+        body: res[0].htmlBody,
+        title: res[0].data.fragments['articles.title'].value,
+        image: image
       });
+      console.log($scope.swankin);
     });
   }
+  getArticle();
 
-  getGrams();
 }
 
 /*@ngInject*/
+function prisCtrl($scope, $resource, $sce ) {
+  function getPris ($q) {
+
+    $scope.pris = $resource('/api/pris/', {});
+    $scope.pris.query( {}, function (res) {
+      console.log(res);
+      if( angular.isUndefined() ) {
+        $scope.articles = [];
+      }
+      //
+      angular.forEach(res, function (swag) {
+        $scope.articles.push({
+          link: swag.uid,
+          date: swag.fragments['articles.date'].value,
+          body: shorten(swag.fragments['articles.body'].blocks[0].text, 100),
+          title: swag.fragments['articles.title'].value
+          //   .replace('&mdash; ', "<h3>")
+          //   .replace(') <a', "</em></h3><a")
+          //   .replace(' (@', "<em>@"),
+          // date: tweets.created_at
+        });
+      });
+
+    });
+  }
+  getPris();
+}
+function shorten(str,n) {
+  return (str.match(RegExp(".{"+n+"}\\S*"))||[str])[0];
+}
+
+
+/*@ngInject*/
 function twitterCtrl($scope, $resource, $sce ) {
- 
+
   function getTweets ($q) {
 
     $scope.tweet = $resource('/api/twitter/', {
@@ -111,16 +159,17 @@ function twitterCtrl($scope, $resource, $sce ) {
       if( angular.isUndefined() ) {
         $scope.tweets = [];
       }
- 
+
       angular.forEach(res, function (tweets) {
-        console.log(tweets.oEmbed.html);
-        $scope.tweets.push( 
-          tweets.oEmbed.html
+        $scope.tweets.push({
+          body: tweets.oEmbed.html
             .replace('&mdash; ', "<h3>")
             .replace(') <a', "</em></h3><a")
-            .replace(' (@', "<em>@")
-        );
+            .replace(' (@', "<em>@"),
+          date: tweets.created_at
+        });
       });
+
     });
   }
   getTweets();
@@ -128,6 +177,7 @@ function twitterCtrl($scope, $resource, $sce ) {
 
 // attach the controller to this module to be exported
 angular.module('app.controllers')
-  .controller('swipeCtrl', swipeCtrl) 
-  .controller('twitterCtrl', twitterCtrl) 
-  .controller('instagramCtrl', instagramCtrl) 
+  .controller('swipeCtrl', swipeCtrl)
+  .controller('twitterCtrl', twitterCtrl)
+  .controller('prisCtrl', prisCtrl)
+  .controller('getPrisArticle', getPrisArticle)

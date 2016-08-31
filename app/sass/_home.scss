@@ -11,7 +11,7 @@
     }
     @media #{$tab} {
       transform:scale(1.2) skewy(-2deg);
-    }  
+    }
     @media #{$desk} {
       transform: scale(1.2) skewy(-3deg);
     }
@@ -72,7 +72,7 @@ section.mainswipe{
     outline: 1px solid transparent;
     img{
       max-height: 100%;
-      width: 100%; 
+      width: 100%;
       transform: translate3d(0, 0, 0);
     }
   }
@@ -94,7 +94,7 @@ section.mainswipe{
       background: $orange;
       text-transform: uppercase;
       font-weight: 800;
-      padding: 1em;   
+      padding: 1em;
       border: 0;
       font-size: .8em;
       color: #84a0a0;
@@ -102,7 +102,7 @@ section.mainswipe{
       margin: 0;
     }
 
-    &.next { 
+    &.next {
       text-align: right;
       button {
         position: relative;
@@ -140,7 +140,7 @@ section.mainswipe{
 
     }
 
-    &.prev { 
+    &.prev {
       button {
         position: relative;
         top: -2.4em;
@@ -186,13 +186,13 @@ section.mainswipe{
       display: block;
     }
     li{
-      display: flex; 
+      display: flex;
       align-items: center;
       justify-content: center;
       height: 18em;
       flex: 1;
       text-align: center;
-      background: $blue; 
+      background: $blue;
       margin-right: 5%;
       margin-top: 10%;
       margin-left: 0;
@@ -221,8 +221,8 @@ section.mainswipe{
     }
     h2{
       color: $gray;
-      font-family: 'Tungsten A', 'Tungsten B'; 
-      font-weight: 600; 
+      font-family: 'Tungsten A', 'Tungsten B';
+      font-weight: 600;
       font-style: normal;
       font-size: 1.4em;
       letter-spacing: 0.095em;
@@ -236,7 +236,7 @@ section.mainswipe{
       padding: 0 2.6em;
       @media #{$phone} {
         font-weight: 400;
-      }    
+      }
     }
   }
 }
@@ -308,23 +308,41 @@ section.mainswipe{
     font-size: 1em;
     letter-spacing: 0;
     a{
+      // border-bottom: 0.2em solid $orange;
+      padding-bottom: 0.05em;
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+      cursor:pointer;
       color: $orange;
       font-style: italic;
+      &:hover{
+        background: $orange;
+        color:#D9E5E5;
+        padding: .1em .4em;
+      }
     }
   }
 }
+
+.inside p{
+  margin-top: 2.1em;
+}
+.inside img{
+  max-width: 100%;
+  margin-top: 2.1em;
+}
+
 .events{
   @media #{$phone} {
     padding-top: 2em;
     padding-bottom: 9em;
-  } 
+  }
 }
 
 .articles{
   margin-top: -5.5em;
   @media #{$phone} {
     padding-bottom: 8em;
-  } 
+  }
 }
 
 .location{
@@ -384,7 +402,7 @@ section.mainswipe{
     }
     @media #{$tab} {
       transform: translate3d(0, 0, 0) skewy(2deg);
-    }  
+    }
     @media #{$desk} {
       transform: translate3d(0, 0, 0) skewy(3deg);
     }
@@ -397,7 +415,7 @@ section.mainswipe{
       }
       background-position: center center;
       background-repeat-x: no-repeat;
-      background-size: cover; 
+      background-size: cover;
       content: " ";
       display: inline-block;
       width: 120%;
@@ -423,7 +441,9 @@ section.mainswipe{
   width: 100%;
   position: relative;
   padding: 1.4em 0;
-
+  &:nth-of-type(2){
+    margin-top: 1em;
+  }
   &:after{
     content: " ";
     height: 3.8em;
@@ -463,7 +483,7 @@ section.mainswipe{
   }
   section.content{
     display: flex-box;
-    display: flex; 
+    display: flex;
     @media #{$phone} {
       display: block;
     }
@@ -474,17 +494,17 @@ section.mainswipe{
       }
       .linkbutton{
         color: $gray;
-        &:after{ 
+        &:after{
           background: $blue;
         }
         &:hover{
           color: $blue;
-        } 
+        }
         @media #{$phone}{
           font-size: 1.2em;
         }
       }
-      h1{ 
+      h1{
         padding-bottom: 2.6em;
         padding-top: 0;
         @media #{$phone} {
@@ -573,7 +593,7 @@ section.mainswipe{
       }
       > div.grams {
         display: inline-block;
-        display: flex; 
+        display: flex;
         flex-wrap: wrap;
         display: flex-box;
         flex-basis: auto;
@@ -588,7 +608,7 @@ section.mainswipe{
           flex-wrap: wrap;
           @media #{$phone} {
             &:nth-child(n+3){
-              display: none; 
+              display: none;
             }
           }
           &:nth-child(odd){

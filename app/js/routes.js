@@ -1,5 +1,5 @@
 'use strict';
- 
+
 /*@ngInject*/
 function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
@@ -10,7 +10,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'home.html',
       title: 'Home'
-    });  
+    });
 
   $stateProvider
     .state('articles', {
@@ -20,10 +20,10 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
     });
 
   $stateProvider
-    .state('events', {
-      url: '/events',
-      templateUrl: 'articles.html',
-      title: 'Events'
+    .state('article', {
+      url: '/articles/:articleId',
+      templateUrl: 'article.html',
+      controller: 'getPrisArticle'
     });
 
   $stateProvider

@@ -10,4 +10,7 @@ footer{
   text-transform: uppercase;
   font-size: 1em;
   color: $darkblue;
+  &.red{
+    background: $orange
+  }
 }

@@ -2,7 +2,7 @@
 
 // fckyah studio gulp file
 
-// errors and the config file... 
+// errors and the config file...
 
 var config          = require('./config.js');
 var errors          = require('./errors.js');
@@ -16,7 +16,6 @@ var del             = require('del');
 var gulp            = require('gulp');
 var templateCache   = require('gulp-angular-templatecache');
 var autoprefix      = require('gulp-autoprefixer');
-var mangle          = require('gulp-browserify-mangle');
 var changed         = require('gulp-changed');
 var gulpif          = require('gulp-if');
 var imagemin        = require('gulp-imagemin');
@@ -49,7 +48,7 @@ gulp.task('prod', ['clean'], function(cb) {
 
 // just write `gulp` to get dat dev
 
-gulp.task('default', [ 'development']); 
+gulp.task('default', [ 'development']);
 
 
 
@@ -68,7 +67,7 @@ gulp.task('development', function(cb) {
 
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch(config.scripts.app, ['lint', 'js']);
+  gulp.watch(config.scripts.app, ['js']);
   gulp.watch(config.sass.app, ['sass']);
   gulp.watch(config.images.app, ['images']);
   gulp.watch(config.views.watch, ['views','js'])
@@ -77,10 +76,10 @@ gulp.task('watch', function() {
 
 
 // this ignores and only watches server stuff excluding gulp.
-// ignore stuff speeds up the whole process as well. Only watch what's neccesary. 
+// ignore stuff speeds up the whole process as well. Only watch what's neccesary.
 
 gulp.task('server', function(){
-  nodemon({ 
+  nodemon({
     script: config.nodemon.entry,
     ignore: config.nodemon.ignore
   })
@@ -89,7 +88,7 @@ gulp.task('server', function(){
 
 
 
-// lint
+//
 // it's fucking linting.. make crockford happy, don't be a dick.
 
 gulp.task('lint', function(){
@@ -106,21 +105,21 @@ gulp.task('lint', function(){
 // mad confusing... but works somehow.
 
 function buildScript(file) {
-  var bundler = browserify({ 
+  var bundler = browserify({
     entries: config.browserify.app,
     cache: {},
     packageCache: {},
     fullPaths: true,
     debug: true
     }, watchify.args);
-  
+
   if ( !global.isProd ) {
     bundler = watchify(bundler);
     bundler.on('update', function() {
      rebundle();
     });
   }
-  
+
   bundler.transform(ngAnnotate);
   bundler.transform(jadeify)
     .on('error', errors);
@@ -177,7 +176,7 @@ gulp.task('images', function() {
         progressive: true,
         optimizationLevel: 6,
         svgoPlugins: [{removeViewBox: false}]
-      })))  
+      })))
     .on('error', errors)
     .pipe(gulp.dest(config.images.public))
     .pipe(gulpif(!global.isProd, livereload()));
@@ -196,7 +195,7 @@ gulp.task('fonts', function() {
 
 
 // views
-// jade shit and template cache shit... it's all confusing. 
+// jade shit and template cache shit... it's all confusing.
 
 gulp.task('views', function() {
   gulp.src('app/index.jade')
