@@ -13,13 +13,8 @@ function swipeCtrl($scope ) {
       {image: '/img/swipe/swipe2_s.jpg'},
       {image: '/img/swipe/swipe3_s.jpg'},
       {image: '/img/swipe/swipe4_s.jpg'},
-      // {image: '/img/swipe/swipe5_s.jpg'},
       {image: '/img/swipe/swipe6_s.jpg'},
-      // {image: '/img/swipe/swipe7_s.jpg'},
-      // {image: '/img/swipe/swipe8_s.jpg'},
-      // {image: '/img/swipe/swipe9_s.jpg'},
       {image: '/img/swipe/swipe10_s.jpg'},
-      // {image: '/img/swipe/swipe11_s.jpg'},
       {image: '/img/swipe/swipe12_s.jpg'},
       {image: '/img/swipe/swipe13_s.jpg'},
       {image: '/img/swipe/swipe14_s.jpg'}
@@ -70,18 +65,13 @@ function kevinCtrl() {
   vm.title = 'Kevin Sousa - Chef of Superior Motors';
 }
 
-
-
 /*@ngInject*/
 function getPrisArticle($scope, $resource, $sce,$stateParams) {
-  // console.log($stateParams)
-  // console.log($stateParams.articleId)
-  function getArticle($q) {
 
+  function getArticle($q) {
 
     $scope.pris = $resource('/api/pris/' + $stateParams.articleId, {});
     $scope.pris.query( {}, function (res) {
-      // console.log(res[0]);
 
       if( angular.isUndefined() ) {
         $scope.swankin = [];
@@ -90,13 +80,6 @@ function getPrisArticle($scope, $resource, $sce,$stateParams) {
       if(res[0].data.fragments['articles.image']){
         image = res[0].data.fragments['articles.image'].url || {};
       }
-      // if(typeof res[0].data.fragments['articles.image'].value.main.url  ){
-      //   image = ''
-      //   console.log("swag");
-      // }else{
-      //   console.log("swank");
-      //   // image = res[0].data.fragments['articles.image'].value.main.url;
-      // }
 
       $scope.swankin.push({
         date: res[0].data.fragments['articles.date'].value,
@@ -120,17 +103,12 @@ function prisCtrl($scope, $resource, $sce ) {
       if( angular.isUndefined() ) {
         $scope.articles = [];
       }
-      //
       angular.forEach(res, function (swag) {
         $scope.articles.push({
           link: swag.uid,
           date: swag.fragments['articles.date'].value,
           body: shorten(swag.fragments['articles.body'].blocks[0].text, 100),
           title: swag.fragments['articles.title'].value
-          //   .replace('&mdash; ', "<h3>")
-          //   .replace(') <a', "</em></h3><a")
-          //   .replace(' (@', "<em>@"),
-          // date: tweets.created_at
         });
       });
 

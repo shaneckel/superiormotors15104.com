@@ -17,7 +17,7 @@ function swipe($window) {
       function movePos() {
         var size = 2;
         if($window.innerWidth <= 787){
-          size = 2; 
+          size = 2;
         }else{
           size = 3;
         }
@@ -29,7 +29,7 @@ function swipe($window) {
       function imageResize() {
         var size = 2;
         if($window.innerWidth <= 787){
-          size = 2; 
+          size = 2;
         }else{
           size = 3;
         }
@@ -38,19 +38,19 @@ function swipe($window) {
         var figurePos = '-' + (Math.floor($window.innerWidth / size) * scope.currentIndex) + 'px';
 
         scope.imageStyle = function() {
-          return{ 
+          return{
             'width' : imageSize,
             'height' : imageSize
           };
         };
         scope.figureStyle = function() {
-          return{ 
+          return{
             'width' : figureSize,
             'height' : imageSize
           };
-        };        
+        };
         scope.activeStyle = function() {
-          return{ 
+          return{
             'width' : figureSize,
             'height' : imageSize,
             'left' : figurePos,
@@ -58,7 +58,7 @@ function swipe($window) {
           };
         };
         if(!scope.$$phase){
-          scope.$apply(); 
+          scope.$apply();
         }
       }
 
@@ -76,9 +76,8 @@ function scrollPosition($window) {
   return {
     restrict:'A',
     link: function(scope, element, attrs) {
-      
+
       function scrollPos(){
-        // scope.scroll = $window.scrollY;
         var scrollTop = '-' + $window.scrollY + 'px';
         scope.scrollStyle = function(){
           return{
@@ -86,14 +85,11 @@ function scrollPosition($window) {
           }
         }
         if(!scope.$$phase){
-          scope.$apply(); 
+          scope.$apply();
         }
       }
-      
-
 
       angular.element($window).bind('scroll', scrollPos);
-
     }
   };
 }
@@ -107,7 +103,7 @@ function breakpoint($window, $rootScope){
 
       var breakpoints = (scope.$eval(attr.breakpoint));
       var firstTime = true;
-   
+
       scope.$watch('breakpoint.windowSize', function(windowWidth){
         setClass(windowWidth);
       });
@@ -126,7 +122,7 @@ function breakpoint($window, $rootScope){
       function setWindowSize (){
         scope.breakpoint.windowSize = $window.innerWidth;
         if(!scope.$$phase){
-          scope.$apply(); 
+          scope.$apply();
         }
       }
 
@@ -142,16 +138,16 @@ function breakpoint($window, $rootScope){
         scope.breakpoint.class = setClass;
         if(!scope.$$phase){
           scope.$apply();
-        } 
+        }
       }
 
       angular.element($window).bind('resize', setWindowSize);
- 
+
     }
   };
 }
 
-// attach the directives to this module to be exported 
+// attach the directives to this module to be exported
 angular.module('app.directives')
   .directive('mainswipe', swipe)
   .directive('breakpoint', breakpoint)

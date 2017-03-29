@@ -1,11 +1,8 @@
 
 header.feature
   section.content
-    //- figure.main
     div.svg-container
       img.svg-content(ng-src="../img/superiormotors-update.svg" alt="superior motors 15104")
-      //- h2 community driven
-    //- h1 Superior Motors
     
 article.welcome.skewleft
   section.mainswipe(mainswipe ng-controller="swipeCtrl"  )
@@ -34,22 +31,8 @@ article.events.skewright
       date {{article.date | date:'MMMM dd, y' }}
       p {{article.body}}  
         a(ui-sref="article({'articleId':'{{article.link}}'})") read more
-    
-    //- article
-    //-   h2 Winter Harvest Kickstarter Dinner
-    //-   date November 22nd 
-    //-   p Come enjoy a meal and celebrate the opening of braddocks new restaurant. 
-    //-     a(href='#') read more  
-    //- 
-    //- article
-    //-   h2 Winter Harvest Kickstarter Dinner
-    //-   date November 22nd 
-    //-   p Come enjoy a meal and celebrate the opening of braddocks new restaurant. 
-    //-     a(href='#') read more
   
   button.badge(ui-sref="articles") view all articles
-
-
 
 article.farm.skewright: section.content
   h1 braddock farms
@@ -63,28 +46,6 @@ article.training.skewleft: section.content
   h1 job training program
   p We will provide a job training program, unlike any in the region – free of charge. One which will introduce participants to the  urban agriculture and world class culinary/restaurant  experience and skills necessary to excel in these fields.
 
-
-//- article.signup.skewright: section.content
-//-   h1 subscribe to our mailing list
-//-   div#mc_embed_signup
-//-     form(action="//shaneckel.us9.list-manage.com/subscribe/post?u=691eeb7c0e9542392bad47a59&amp;id=378644598d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
-//-       div#mc_embed_signup_scroll
-//-         div.mc-field-group
-//-           label(for="mce-EMAIL") Email Address  
-//-           input(type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL")
-//-         div.mc-field-group
-//-           label(for="mce-FNAME") First Name
-//-           input(type="text" value="" name="FNAME" class="" id="mce-FNAME")
-//-         div.mc-field-group
-//-           label(for="mce-LNAME") Last Name
-//-           input(type="text" value="" name="LNAME" class="" id="mce-LNAME")
-//-         div#mce-responses
-//-           div#mce-error-response.response(style="display:none")
-//-           div#mce-success-response.response(style="display:none")
-//-         div(style="position: absolute; left: -5000px;"): input(type="text" name="b_691eeb7c0e9542392bad47a59_378644598d" tabindex="-1" value="")
-//-         div: input(type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe")
-
-
 article.location.skewright
   figure.map
   section.content
@@ -94,20 +55,6 @@ article.location.skewright
       p Braddock, Pennsylvania
     p Parking is available at our building. 
     p Located at the former site of one of the first indoor Chevrolet dealerships in the country.
-
-//- article.articles.skewleft
-//-   section.content
-//-     h1 Articles
-//-     article
-//-       h2 Construction
-//-       date November 22nd 
-//-     article
-//-       h2 Braddock Youth
-//-       date November 22nd 
-//-     article
-//-       h2 Available Ingredients In Braddock’s Backyard.
-//-       date November 22nd 
-//-   button.badge view all articles
 
 article.social.skewleft
   section.content

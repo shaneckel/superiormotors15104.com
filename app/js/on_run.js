@@ -14,11 +14,9 @@ function OnRun($rootScope, $state, AppSettings) {
       $rootScope.pageTitle += toState.title;
     }
 
-
   });
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-    
 
   });
 }

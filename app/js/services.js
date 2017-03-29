@@ -26,7 +26,6 @@ function prisService($q, $http){
   return service;
 }
 
-
 // attach the services to this module to be exported
 angular.module('app.services')
   .service('prisService', prisService);
