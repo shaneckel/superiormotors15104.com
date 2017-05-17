@@ -13,8 +13,6 @@ function prisService($q, $http){
     var deferred = $q.defer();
     $http.get('https://superiormotors.prismic.io/api/documents/search?ref=V8OfvikAADFlUe5E#format=json')
     .success(function(data) {
-      console.log("swag");
-      console.log(data);
       deferred.resolve(data);
     })
     .error(function(err, status) {
