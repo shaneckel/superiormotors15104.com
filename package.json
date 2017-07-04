@@ -1,89 +1,40 @@
 {
-  "name": "superiormotors15104",
+  "name": "superiormotors.com",
   "version": "1.0.0",
-  "description": "A restaurant in Braddock, Pa",
-  "author": {
-    "name": "Shane Eckel",
-    "email": "shaneckel@gmail.com",
-    "url": "http://www.shaneckel.com/"
-  },
-  "homepage": "http://www.superiormotors15104.com/",
+  "description": "Nuxt.js project",
+  "author": "Shane Eckel <shaneckel@gmail.com>",
+  "private": true,
   "scripts": {
-    "start": "node index.js"
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "cross-env NODE_ENV=production node build/main.js",
+    "precommit": "npm run lint",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "express": "4.14.0",
-    "express-session": "^1.14.1",
-    "instagram-node-lib": "^0.1.1",
-    "jade": "^1.11.0",
-    "path": "^0.12.7",
-    "prismic-nodejs": "^1.1.0",
-    "prismic.io": "^3.1.3",
-    "serve-favicon": "^2.3.0",
-    "twit": "^2.2.4"
+    "axios": "^0.16.1",
+    "cross-env": "^5.0.0",
+    "date-fns": "^1.28.5",
+    "express": "^4.15.3",
+    "nuxt": "^1.0.0-alpha.3",
+    "prismic.io": "^3.5.7",
+    "source-map-support": "^0.4.15",
+    "vue-awesome-swiper": "^2.5.0"
   },
-  "engines": {
-    "node": "7.7.4"
-  },
-  "repository": {
-    "type": "git"
-  },
-  "license": "MIT",
   "devDependencies": {
-    "angular": "^1.5.8",
-    "angular-animate": "^1.5.8",
-    "angular-resource": "^1.5.8",
-    "angular-sanitize": "^1.5.8",
-    "angular-touch": "^1.5.8",
-    "angular-ui-router": "^0.3.1",
-    "brfs": "^1.4.3",
-    "browserify": "^13.1.0",
-    "browserify-ngannotate": "^2.0.0",
-    "browserify-shim": "^3.8.12",
-    "del": "^2.2.2",
-    "gsap": "^1.19.0",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-changed": "^1.3.2",
-    "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-jade": "^1.1.0",
-    "gulp-jshint": "^2.0.1",
-    "gulp-livereload": "^3.8.1",
-    "gulp-nodemon": "^2.1.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-streamify": "1.0.2",
-    "gulp-svg2png": "^2.0.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "jadeify": "^4.6.0",
-    "jshint": "^2.9.3",
-    "jshint-stylish": "^2.2.1",
-    "pretty-hrtime": "^1.0.2",
-    "run-sequence": "^1.2.2",
-    "tiny-lr": "0.2.1",
-    "uglifyify": "^3.0.2",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "browser": {
-    "angular": "./node_modules/angular/angular.js",
-    "angular-animate": "./node_modules/angular-animate/angular-animate.js",
-    "angular-sanitize": "./node_modules/angular-sanitize/angular-sanitize.js",
-    "angular-touch": "./node_modules/angular-touch/angular-touch.js",
-    "gsap": "./node_modules/gsap/src/uncompressed/TweenMax.js"
-  },
-  "browserify-shim": {
-    "angular": "angular"
+    "babel-eslint": "^7.2.3",
+    "backpack-core": "^0.3.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-html": "^2.0.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "node-sass": "^4.5.3",
+    "pug": "^2.0.0-beta6",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^6.0.6"
   }
 }
