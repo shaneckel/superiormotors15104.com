@@ -40,14 +40,14 @@
         <h1>Reservations</h1>
         <div class="reserve-widget">
           <div class="text">
-            <p>We take reservations exclusively through <a href='https://www.opentable.com/r/superior-motors-reservations-pittsburgh?restref=289261&lang=en'>Opentable</a>.</p>
-            <p>Either visit <a href='https://www.opentable.com/r/superior-motors-reservations-pittsburgh?restref=289261&lang=en'>Opentable</a> directly or use the widget below.</p>
+            <p>We take reservations exclusively through <a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Opentable</a>.</p>
+            <p>Either visit <a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Opentable</a> directly or use the widget.</p>
           </div>
           <div class="widget" ref="widget">
           </div>
         </div>
       </section>
-      <a class="badge blue" href='https://www.opentable.com/r/superior-motors-reservations-pittsburgh?restref=289261&lang=en'>Reserve</a>
+      <a class="badge blue" href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Reserve</a>
     </article>
     <article class="events skewright">
       <section class="content">
