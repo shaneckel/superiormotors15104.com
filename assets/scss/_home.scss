@@ -377,7 +377,6 @@ section.mainswipe{
     font-size: 1em;
     letter-spacing: 0;
     a{
-      // border-bottom: 0.2em solid $orange;
       padding-bottom: 0.05em;
       transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
       cursor:pointer;
@@ -582,4 +581,12 @@ section.mainswipe{
       }
     }
   }
+}
+
+.page-enter-active {
+  transition: opacity .3s
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0
 }

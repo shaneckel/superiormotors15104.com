@@ -1,13 +1,14 @@
 # superiormotors.com
+> Superior Motors Restaurant in Braddock, Pa
 
 ## Build Setup
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ npm i
 
-# serve with hot reload at localhost:3000
+# localhost:3000
 $ npm run dev
 
-# build for production and launch server
+# build for production
 $ npm start
 ```

@@ -1,4 +1,4 @@
-<template lang="pug">
+<template>
   <main>
     <header class="feature secondary ">
       <nav class="skewright">
@@ -17,7 +17,10 @@
     </header>
     <article class="articles skewleft inside list">
       <section class="content">
-        <p>{{article}}</p>
+        <h3>{{ timeFix(article.data.fragments['articles.date'].value) }}</h3>
+        <h2>{{ article.data.data['articles.title'].value}}</h2>
+        <div v-html="article.body"></div>
+        <img v-if="article.data.data['articles.image']" :src="article.data.data['articles.image'].value.main.url" />
       </section>
     </article>
     <footer class="red">
@@ -34,6 +37,7 @@
 
 <script>
 import axios from '~plugins/axios'
+import format from 'date-fns/format'
 
 export default {
   name: 'articles',
@@ -45,6 +49,17 @@ export default {
     .catch((e) => {
       error({ statusCode: 404, message: 'article not found' })
     })
+  },
+  methods: {
+    timeFix (arg) {
+      return format(arg, 'MMMM DD, YYYY')
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.articles img{
+  padding-bottom: 2em;
+}
+</style>

@@ -25,9 +25,8 @@ module.exports = {
     { src: '~assets/scss/main.scss', lang: 'scss' },
     'swiper/dist/css/swiper.css',
   ],
-  plugins: [
-    { src: '~plugins/ga.js', ssr: false },
-    '~plugins/nuxt-swiper-plugin.js',
+  modules: [
+    ['@nuxtjs/google-analytics', { ua: 'UA-17701242-6' }],
   ],
   build: {
     vendor: ['axios', 'date-fns'],

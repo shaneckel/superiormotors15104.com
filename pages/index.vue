@@ -1,6 +1,9 @@
 <template>
   <main>
     <header class="feature">
+      <aside class="reserve-callout">
+        <p><a href="#reservation">reservations available</a></p>
+      </aside>
       <section class="content">
         <div class="svg-container"><img class="svg-content" src="/img/superiormotors-update.svg" alt="superior motors 15104"/></div>
       </section>
@@ -21,7 +24,7 @@
       </section>
       <section class="content">
         <h1>Superior Motors</h1>
-        <p>Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of <a class="inlineorange" href='/kevinsousa/'>Chef Kevin Sousa</a>.</p>
+        <p>Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of <nuxt-link :to="'/kevinsousa/'" class="inlineorange">Chef Kevin Sousa</nuxt-link>.</p>
       </section>
     </article>
     <article class="hours skewright">
@@ -32,7 +35,7 @@
         <p>Sunday / <span>5p – 9p</span></p>
       </section>
     </article>
-    <article class="reservation skewleft">
+    <article class="reservation skewleft" id="reservation">
       <section class="content">
         <h1>Reservations</h1>
         <div class="reserve-widget">
@@ -40,8 +43,7 @@
             <p>We take reservations exclusively through <a href='https://www.opentable.com/r/superior-motors-reservations-pittsburgh?restref=289261&lang=en'>Opentable</a>.</p>
             <p>Either visit <a href='https://www.opentable.com/r/superior-motors-reservations-pittsburgh?restref=289261&lang=en'>Opentable</a> directly or use the widget below.</p>
           </div>
-          <div class="widget">
-            <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=289261&domain=com&type=standard&theme=tall&lang=en&overlay=false&iframe=true'></script>
+          <div class="widget" ref="widget">
           </div>
         </div>
       </section>
@@ -98,7 +100,7 @@
       </section>
     </article>
     <footer>
-      <p>superior motors 2015 |<a href="https://www.kickstarter.com/projects/379429428/superior-motors-community-restaurant-and-farm-ecos"> kickstarter campaign</a></p>
+      <p>superior motors 2015 | <a href="https://www.kickstarter.com/projects/379429428/superior-motors-community-restaurant-and-farm-ecos"> kickstarter campaign</a></p>
     </footer>
   </main>
 </template>
@@ -106,6 +108,12 @@
 <script>
 import axios from '~plugins/axios'
 import format from 'date-fns/format'
+import Vue from 'vue'
+
+if (process.BROWSER_BUILD) {
+  const VueAwesomeSwiper = require('vue-awesome-swiper/ssr')
+  Vue.use(VueAwesomeSwiper)
+}
 
 export default {
   async asyncData () {
@@ -154,6 +162,13 @@ export default {
     }
   },
 
+  mounted () {
+    const script = document.createElement('script')
+    script.setAttribute('type', 'text/javascript')
+    script.setAttribute('src', '//www.opentable.com/widget/reservation/loader?rid=289261&domain=com&type=standard&theme=tall&lang=en&overlay=false&iframe=true')
+    this.$refs.widget.appendChild(script)
+  },
+
   methods: {
     shorten (arg, n) {
       return (arg.match(RegExp('.{' + n + '}\\S*')) || [arg])[0]
@@ -166,9 +181,60 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~assets/scss/vars';
+
 .hours{
   p > span{
     font-weight: 900;
+  }
+}
+.reserve-callout{
+  text-transform: uppercase;
+  font-size: .7em;
+  position: absolute;
+  left: 20%;
+  @media #{$phone} {
+    font-size: .9em;
+    left: 10%;
+  }
+  &:hover{
+    p{
+      transform: translateY(1em);
+      &:after{
+        transform: scale(1.2) skewy(-3.5deg);
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        background: $orange;
+      }
+    }
+    a{
+      &:hover{
+         color: $blue;
+      }
+    }
+  }
+  a{
+    color: $gray;
+    padding: .6em 1em;
+  }
+  p{
+    position: relative;
+    margin: 0 auto;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    transform: translateY(0em);
+    &:after{
+      transform: scale(1) skewy(0);
+      pointer-events: none;
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+      content: " ";
+      height: 120%;
+      width: 100%;
+      z-index: -10;
+      background: $darkblue;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 }
 </style>
