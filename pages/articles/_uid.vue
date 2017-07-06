@@ -43,12 +43,12 @@ export default {
   name: 'articles',
   asyncData ({ params, error }) {
     return axios.get('/api/articles/' + params.uid)
-    .then((res) => {
-      return { article: res.data }
-    })
-    .catch((e) => {
-      error({ statusCode: 404, message: 'article not found' })
-    })
+      .then((res) => {
+        return { article: res.data }
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: 'article not found' })
+      })
   },
   methods: {
     timeFix (arg) {

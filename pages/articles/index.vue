@@ -46,12 +46,12 @@ export default {
 
   asyncData ({ params, error }) {
     return axios.get('/api/articles/')
-    .then((res) => {
-      return { articles: res.data }
-    })
-    .catch((e) => {
-      error({ statusCode: 404, message: 'article not found' })
-    })
+      .then((res) => {
+        return { articles: res.data }
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: 'article not found' })
+      })
   },
 
   methods: {
