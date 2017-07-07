@@ -210,6 +210,9 @@ section.mainswipe{
     }
     > div{
       flex: 1 50%;
+      &:first-child{
+        flex: 1 65%
+      }
     }
     .widget{
       position: relative;

@@ -40,8 +40,9 @@
         <h1>Reservations</h1>
         <div class="reserve-widget">
           <div class="text">
-            <p>We take reservations exclusively through <a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Opentable</a>.</p>
+            <p>We take reservations through <a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Opentable</a>.</p>
             <p>Either visit <a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Opentable</a> directly or use the widget.</p>
+            <p>Or call <a href="tel:4122711022">(412) 271-1022</a></p>
           </div>
           <div class="widget" ref="widget">
           </div>
