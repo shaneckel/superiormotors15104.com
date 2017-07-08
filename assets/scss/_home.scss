@@ -310,10 +310,10 @@ section.mainswipe{
 
 .farm{
   @media #{$tab} {
-    background-image: url('http://supmot.imgix.net/superior_main_l.jpg');
+    background-image: url('https://supmot.imgix.net/superior_main_l.jpg');
   }
   @media #{$phone} {
-    background-image: url('http://supmot.imgix.net/superior_main_s.jpg');
+    background-image: url('https://supmot.imgix.net/superior_main_s.jpg');
   }
   background-size: cover;
   background-position: 50%;
@@ -482,7 +482,7 @@ section.mainswipe{
     }
     &:before{
       @media #{$tab} {
-        background: url('http://supmot.imgix.net/map.jpg');
+        background: url('https://supmot.imgix.net/map.jpg');
       }
       background-position: center center;
       background-repeat-x: no-repeat;
