@@ -1,18 +1,8 @@
 <template>
   <main>
-    <header class="feature secondary ">
+    <header class="feature secondary art">
       <nav class="skewright">
-        <ul class="content">
-          <li>
-            <figure>
-              <nuxt-link class="button" :to="'/'">
-                <img src="/img/superiormotors.min.png" alt="superior motors logomark"/>
-              </nuxt-link>
-            </figure>
-          </li>
-          <li><nuxt-link class="button" :to="'/kevinsousa/'">chef</nuxt-link></li>
-          <li><nuxt-link class="button" :to="'/articles/'">articles</nuxt-link></li>
-        </ul>
+        <sub-nav></sub-nav>
       </nav>
     </header>
     <article class="articles skewleft inside list">
@@ -23,23 +13,21 @@
         <img v-if="article.data.data['articles.image']" :src="article.data.data['articles.image'].value.main.url" />
       </section>
     </article>
-    <footer class="red">
-      <div class="info">
-        <p>Superior Motors | Braddock, Pa</p>
-        <p><a href="tel:4122711022">(412) 271-1022</a></p>
-        <p><a href="https://www.google.com/maps/place/Superior+Motors/@40.3977638,-79.8626489,17z/data=!3m1!4b1!4m5!3m4!1s0x8834eee4611bb4b7:0x15a3def32be2a3c4!8m2!3d40.3977638!4d-79.8604602">1211 Braddock Ave, 15104</a></p>
-        <p><a href='http://www.opentable.com/single.aspx?rid=289261&restref=289261'>Make A Reservation</a></p>
-        <p><a href="https://www.facebook.com/superiormotors15104">facebook</a><span>|</span><a href="https://twitter.com/SM15104">twitter</a><span>|</span><a href="https://instagram.com/superiormotors15104/">instagram</a></p>
-      </div>
-    </footer>
+    <sub-foot theme="red"></sub-foot>
   </main>
 </template>
 
 <script>
 import axios from '~plugins/axios'
 import format from 'date-fns/format'
+import SubNav from '~components/SubNav.vue'
+import SubFoot from '~components/SubFooter.vue'
 
 export default {
+  components: {
+    SubNav,
+    SubFoot
+  },
   name: 'articles',
   asyncData ({ params, error }) {
     return axios.get('/api/articles/' + params.uid)

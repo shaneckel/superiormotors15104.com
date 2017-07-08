@@ -4,10 +4,10 @@
 .feature{
   background: #333;
   @media #{$tab} {
-    background-image: url('/img/header_main.jpg');
+    background-image: url('http://supmot.imgix.net/header_main.jpg');
   }
   @media #{$phone} {
-    background-image: url('/img/header_main_s.jpg');
+    background-image: url('http://supmot.imgix.net/header_main_s.jpg');
   }
   background-size: 120%;
   background-position: top;
@@ -65,12 +65,29 @@
 }
 .secondary{
   @media #{$tab} {
-    background-image: url('/img/header_kevin.jpg');
+    background-image: url('http://supmot.imgix.net/header_kevin.jpg');
   }
   @media #{$phone} {
-    background-image: url('/img/header_kevin_s.jpg');
+    background-image: url('http://supmot.imgix.net/header_kevin_s.jpg');
   }
 
+  &.support{
+    @media #{$tab} {
+      background-image: url('http://supmot.imgix.net/header_supporters.jpg');
+    }
+    @media #{$phone} {
+      background-image: url('http://supmot.imgix.net/header_supporters_s.jpg');
+    }
+  }
+
+  &.art{
+    @media #{$tab} {
+      background-image: url('http://supmot.imgix.net/header_articles.jpg');
+    }
+    @media #{$phone} {
+      background-image: url('http://supmot.imgix.net/header_articles_s.jpg');
+    }
+  }
   background-size: cover;
   background-position-y: -2em;
   margin-top: -2em;
@@ -102,7 +119,7 @@
     padding-bottom: 1em;
     background: rgba(31, 57, 67, 0.66);
     border-bottom: 1em solid $orange;
-    margin-bottom: 24%;
+    margin-bottom:18%;
 
   }
   h1{
@@ -117,9 +134,9 @@
     background-color: $orange;
   }
 
-  nav > ul{
-    display: box;
+  nav > div{
     display: flex;
+    justify-content: space-around;
     align-items: center;
     padding-top: 2em;
     a.button{
@@ -170,15 +187,11 @@
         }
       }
     }
-    li{
-      flex: 3;
+    a{
       &:first-child{
-        a:hover{
-          &:hover:after{
-            display: none;
-          }
+        &:after{
+          display: none;
         }
-        flex: 1 3.5em;
       }
     }
     figure{

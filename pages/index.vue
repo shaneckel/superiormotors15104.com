@@ -25,6 +25,7 @@
       <section class="content">
         <h1>Superior Motors</h1>
         <p>Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of <nuxt-link :to="'/kevinsousa/'" class="inlineorange">Chef Kevin Sousa</nuxt-link>.</p>
+        <p>Superior Motors was built and backed by our <nuxt-link :to="'/supporters'" class="inlineorange">supporters</nuxt-link>.</p>
       </section>
     </article>
     <article class="hours skewright">
@@ -107,9 +108,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import axios from '~plugins/axios'
 import format from 'date-fns/format'
-import Vue from 'vue'
 
 if (process.BROWSER_BUILD) {
   const VueAwesomeSwiper = require('vue-awesome-swiper/ssr')
@@ -164,10 +165,12 @@ export default {
   },
 
   mounted () {
-    const script = document.createElement('script')
-    script.setAttribute('type', 'text/javascript')
-    script.setAttribute('src', '//www.opentable.com/widget/reservation/loader?rid=289261&domain=com&type=standard&theme=tall&lang=en&overlay=false&iframe=true')
-    this.$refs.widget.appendChild(script)
+    Vue.nextTick(() => {
+      const script = document.createElement('script')
+      script.setAttribute('type', 'text/javascript')
+      script.setAttribute('src', '//www.opentable.com/widget/reservation/loader?rid=289261&domain=com&type=standard&theme=tall&lang=en&overlay=false&iframe=true')
+      this.$refs.widget.appendChild(script)
+    })
   },
 
   methods: {
@@ -189,6 +192,11 @@ export default {
     font-weight: 900;
   }
 }
+
+article.welcome .content p:nth-of-type(2){
+  padding-top: 2em;
+}
+
 .reserve-callout{
   text-transform: uppercase;
   font-size: .7em;

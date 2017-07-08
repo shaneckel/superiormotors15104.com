@@ -96,12 +96,15 @@ article > section.content{
   @media #{$phone} {
     padding: 5%;
     font-size: 1.4em;
+    padding-top: 1em;
   }
   @media #{$tab} {
     padding: 8%;
+    padding-top: 1%;
   }
   @media #{$desk} {
     padding: 10%;
+    padding-top: 3%;
   }
   @media #{$cap} {
     max-width: 1140px;
@@ -281,7 +284,7 @@ main{
     font-family: $tungsten;
     font-weight: 600;
     font-style: normal;
-    font-size: 1.4em;
+    font-size: 2.2em;
     letter-spacing: 0.095em;
     padding: 1.4em 0 .8em;
   }
