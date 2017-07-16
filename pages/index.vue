@@ -128,20 +128,13 @@ export default {
   data () {
     return {
       banners: [
-        'https://supmot.imgix.net/swipe/swipe1_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe2_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe3_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe4_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe5_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe6_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe7_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe8_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe9_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe10_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe11_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe12_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe13_l.jpg',
-        'https://supmot.imgix.net/swipe/swipe14_l.jpg'
+        'https://supmot.imgix.net/swipe/swp1_l.jpg',
+        'https://supmot.imgix.net/swipe/swp2_l.jpg',
+        'https://supmot.imgix.net/swipe/swp3_l.jpg',
+        'https://supmot.imgix.net/swipe/swp4_l.jpg',
+        'https://supmot.imgix.net/swipe/swp5_l.jpg',
+        'https://supmot.imgix.net/swipe/swp6_l.jpg',
+        'https://supmot.imgix.net/swipe/swp7_l.jpg'
       ],
       swiperOption: {
         pagination: '.swiper-pagination',
