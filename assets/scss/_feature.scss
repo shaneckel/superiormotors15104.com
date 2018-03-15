@@ -4,10 +4,10 @@
 .feature{
   background: #333;
   @media #{$tab} {
-    background-image: url('http://supmot.imgix.net/header_main.jpg');
+    background-image: url('https://supmot.imgix.net/header_main.jpg?1234');
   }
   @media #{$phone} {
-    background-image: url('http://supmot.imgix.net/header_main_s.jpg');
+    background-image: url('https://supmot.imgix.net/header_main_s.jpg?1234');
   }
   background-size: 120%;
   background-position: top;
@@ -20,7 +20,6 @@
     }
   }
   figure.main{
-    display: box;
     display: flex;
     align-items: center;
     .svg-container {
@@ -65,27 +64,27 @@
 }
 .secondary{
   @media #{$tab} {
-    background-image: url('http://supmot.imgix.net/header_kevin.jpg');
+    background-image: url('https://supmot.imgix.net/header_kevin.jpg?1234');
   }
   @media #{$phone} {
-    background-image: url('http://supmot.imgix.net/header_kevin_s.jpg');
+    background-image: url('https://supmot.imgix.net/header_kevin_s.jpg?1234');
   }
 
   &.support{
     @media #{$tab} {
-      background-image: url('http://supmot.imgix.net/header_supporters.jpg');
+      background-image: url('https://supmot.imgix.net/header_supporters.jpg?1234');
     }
     @media #{$phone} {
-      background-image: url('http://supmot.imgix.net/header_supporters_s.jpg');
+      background-image: url('https://supmot.imgix.net/header_supporters_s.jpg?1234');
     }
   }
 
   &.art{
     @media #{$tab} {
-      background-image: url('http://supmot.imgix.net/header_articles.jpg');
+      background-image: url('https://supmot.imgix.net/header_articles.jpg?1234');
     }
     @media #{$phone} {
-      background-image: url('http://supmot.imgix.net/header_articles_s.jpg');
+      background-image: url('https://supmot.imgix.net/header_articles_s.jpg?1234');
     }
   }
   background-size: cover;
@@ -141,7 +140,7 @@
     padding-top: 2em;
     a.button{
       color: $gray;
-      font-size: 1.6em;
+      font-size: 1.1em;
       text-transform: uppercase;
       display: inline-block;
       position: relative;

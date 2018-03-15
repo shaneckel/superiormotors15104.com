@@ -1,11 +1,13 @@
 <template>
   <main>
     <header class="feature">
-      <aside class="reserve-callout">
-        <p><a href="#reservation">reservations available</a></p>
+      <aside class="top-menu">
+        <p><a href="#reservation">reservation</a></p>
+        <p><a href="#reservation">call</a></p>
+        <p><nuxt-link :to="'/menu/'">menu</nuxt-link></p>
       </aside>
       <section class="content">
-        <div class="svg-container"><img class="svg-content" src="/img/superiormotors-update.svg" alt="superior motors 15104"/></div>
+        <div class="svg-container"><img class="svg-content" src="img/superiormotors-update.svg?1234" alt="superior motors 15104"/></div>
       </section>
     </header>
     <article class="welcome skewleft">
@@ -25,13 +27,15 @@
       <section class="content">
         <h1>Superior Motors</h1>
         <p>Thoughtfully prepared food drawing inspiration from Braddock, its people, its history and its perseverance. The cuisine will best represent the eclectic style which has become a trademark of <nuxt-link :to="'/kevinsousa/'" class="inlineorange">Chef Kevin Sousa</nuxt-link>.</p>
-        <p>Superior Motors was built and backed by our <nuxt-link :to="'/supporters'" class="inlineorange">supporters</nuxt-link>.</p>
+        <p>Now available are <a class="inlineorange" href="https://www.toasttab.com/superior-motors/giftcards">Superior Motors gift cards</a>.</p>
+        <p>Take a <a class="inlineorange" href="https://my.matterport.com/show/?m=wkt14cLxhfg&utm_source=3">tour</a> of Superior Motors.</p>
       </section>
     </article>
     <article class="hours skewright">
       <section class="content">
         <h1>Hours</h1>
-        <p>Monday – Thursday / <span>5p – 10p</span></p>
+        <p>Monday – Tuesday / <span>Closed</span></p>
+        <p>Wednesday – Thursday / <span>5p – 10p</span></p>
         <p>Friday & Saturday / <span>5p – 11p</span></p>
         <p>Sunday / <span>5p – 9p</span></p>
       </section>
@@ -57,7 +61,8 @@
         <article v-for="(article, index) in shortArticles">
           <h2>{{article.data['articles.title'].value}}</h2>
           <h3>{{ timeFix(article.fragments['articles.date'].value) }}</h3>
-          <p>{{ shorten(article.data['articles.body'].value[0].text, 200) }} <nuxt-link :to="'/articles/' + article.uid">read more</nuxt-link></p>
+          <p>{{ shorten(article.data['articles.body'].value[0].text, 200) }}</p>
+          <p><nuxt-link :to="'/articles/' + article.uid">read more</nuxt-link></p>
         </article>
       </section>
       <nuxt-link class="badge" :to="'/articles'">view all articles</nuxt-link>
@@ -69,8 +74,24 @@
     </article>
     <article class="sourcing skewright">
       <section class="content">
-        <h1>sourcing and resources</h1>
-        <p>Superior Motors will locally source the majority of produce and animals that we use. Taking full advantage of our partnership with <a class="inlineorange" href="http://www.growpittsburgh.org/">Grow Pittsburgh</a> and Braddock Farms, as well as a commercial, rooftop greenhouse with attached 4000 square foot raised bed garden. In addition we have an on site award winning apiary, community bread oven and housing – if needed for culinary, farming and educational interns and externs – as well as the growing list of guest instructors from around the country who would like to participate in this one of a kind project.</p>
+        <h1>The Hearth Menu</h1>
+        <div class="hearth">
+          <div class="left-hearth">
+            <img src="/img/hearth_menu.png">
+          </div>
+          <div class="right-hearth">
+            <p>small hand held versions of the superior motors menu</p>
+            <p><span>Wednesday & Thursday</span> happy hour drinks 5pm - 7pm. Half off roses, after dinner menu: 8pm - 10pm.</p>
+            <p><span>Saturday</span> open at 4pm.</p>
+            <p><span>Sunday</span> after dinner menu 8pm - (?). Drink specials after 8pm.</p>
+            <h2>The current Hearth Menu <span>({{ timeFix(hearthMenu.data['hearth_menu.hearth_menu_date'].value)}})</span></h2>
+            <article class="group" v-if="item.type === 'Group'" v-for="item in hearthMenu.rawJSON.hearth_menu">
+              <div v-for="list in item.value">
+                <p>- {{list.item.value[0].text}}</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
     </article>
     <article class="training skewleft">
@@ -109,32 +130,29 @@
 
 <script>
 import Vue from 'vue'
-import axios from '~plugins/axios'
+import axios from '~/plugins/axios'
 import format from 'date-fns/format'
-
-if (process.BROWSER_BUILD) {
-  const VueAwesomeSwiper = require('vue-awesome-swiper/ssr')
-  Vue.use(VueAwesomeSwiper)
-}
 
 export default {
   async asyncData () {
     let { data } = await axios.get('/api/shortArticles')
+    let hearth = await axios.get('/api/hearthmenu')
     return {
-      shortArticles: data
+      shortArticles: data,
+      hearthMenu: hearth.data[0]
     }
   },
 
   data () {
     return {
       banners: [
-        'https://supmot.imgix.net/swipe/swp1_l.jpg',
-        'https://supmot.imgix.net/swipe/swp2_l.jpg',
-        'https://supmot.imgix.net/swipe/swp3_l.jpg',
-        'https://supmot.imgix.net/swipe/swp4_l.jpg',
-        'https://supmot.imgix.net/swipe/swp5_l.jpg',
-        'https://supmot.imgix.net/swipe/swp6_l.jpg',
-        'https://supmot.imgix.net/swipe/swp7_l.jpg'
+        'https://supmot.imgix.net/swipe/swp1_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp2_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp3_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp4_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp5_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp6_l.jpg?51231',
+        'https://supmot.imgix.net/swipe/swp7_l.jpg?51231'
       ],
       swiperOption: {
         pagination: '.swiper-pagination',
@@ -180,14 +198,90 @@ export default {
 <style lang="scss">
 @import '~assets/scss/vars';
 
+
 .hours{
   p > span{
     font-weight: 900;
   }
 }
 
-article.welcome .content p:nth-of-type(2){
+article.welcome .content p:nth-of-type(2),
+article.welcome .content p:nth-of-type(3) {
   padding-top: 2em;
+}
+
+
+.hearth{
+  display: flex;
+  flex-direction: row-reverse;
+  @media #{$phone} {
+    display: block;
+  }
+  .left-hearth{
+    width: 100%;
+    @media #{$phone} {
+      width: 100%;
+    }
+    img{
+      max-width: 100%;
+      @media #{$phone} {
+        width: 60%;
+        margin: auto;
+      }
+    }
+  }
+  .right-hearth{
+    width: 100%;
+    p{
+      font-size: .9em;
+      letter-spacing: 0;
+      padding-bottom: .9em;
+      span{
+        font-weight: 900;
+        color: white;
+      }
+      &:nth-child(1){
+        font-size: 1.2em;
+        text-transform: capitalize;
+      }
+    }
+    h2{
+      font-size: .9em;
+      text-transform: capitalize;
+      padding: 2em 0 1em 0;
+      span{
+        font-size: .8em;
+        color: #a6a8a5;
+      }
+    }
+    @media #{$phone} {
+      width: 100%;
+    }
+  }
+}
+
+.top-menu{
+  position: absolute;
+  font-size: 1em;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  align-content: center;
+  @media #{$phone} {
+    font-size: 1.4em;
+  }
+  a{
+    color: $xlightblue;
+    background: $blue;
+    padding: .6em;
+    font-size: .6em;
+    margin-left: 1em;
+  }
 }
 
 .reserve-callout{

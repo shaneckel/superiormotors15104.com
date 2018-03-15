@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import axios from '~plugins/axios'
+import axios from '~/plugins/axios'
 import format from 'date-fns/format'
-import SubNav from '~components/SubNav.vue'
-import SubFoot from '~components/SubFooter.vue'
+import SubNav from '../../components/SubNav.vue'
+import SubFoot from '../../components/SubFooter.vue'
 
 export default {
   name: 'articles',

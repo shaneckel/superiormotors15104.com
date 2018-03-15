@@ -8,6 +8,7 @@
     <nuxt-link class="button" :to="'/kevinsousa/'">chef</nuxt-link>
     <nuxt-link class="button" :to="'/articles/'">articles</nuxt-link>
     <nuxt-link class="button" :to="'/supporters/'">supporters</nuxt-link>
+    <nuxt-link class="button" :to="'/menu/'">menu</nuxt-link>
   </div>
 </template>
 

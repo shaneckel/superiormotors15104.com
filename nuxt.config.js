@@ -26,7 +26,10 @@ module.exports = {
     'swiper/dist/css/swiper.css',
   ],
   modules: [
-    ['@nuxtjs/google-analytics', { ua: 'UA-17701242-6' }],
+    ['@nuxtjs/google-analytics', { ua: 'UA-17701242-6' }]
+  ],
+  plugins: [
+    { src: '~/plugins/vue-swiper.js', ssr: false },
   ],
   build: {
     vendor: ['axios', 'date-fns'],

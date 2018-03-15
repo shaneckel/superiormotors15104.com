@@ -11,28 +11,28 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "^0.2.0",
+    "@nuxtjs/google-analytics": "^2.0.2",
     "axios": "^0.16.2",
     "cross-env": "^5.0.1",
-    "date-fns": "^1.28.5",
+    "date-fns": "^1.29.0",
     "express": "^4.15.3",
-    "nuxt": "latest",
-    "prismic.io": "^3.5.7",
+    "nuxt": "^1.0.0-rc3",
+    "prismic.io": "^3.6.1",
     "source-map-support": "^0.4.15",
-    "vue-awesome-swiper": "^2.5.0"
+    "vue-awesome-swiper": "^2.6.7"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "backpack-core": "^0.4.0-rc1",
-    "eslint": "^4.1.1",
+    "babel-eslint": "^8.0.2",
+    "backpack-core": "^0.4.3",
+    "eslint": "^4.12.1",
     "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.8.0",
-    "eslint-plugin-html": "^3.0.0",
-    "eslint-plugin-import": "^2.6.1",
-    "eslint-plugin-node": "^5.1.0",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"
   }
 }

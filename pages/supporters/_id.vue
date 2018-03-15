@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import axios from '~plugins/axios'
-import SubNav from '~components/SubNav.vue'
-import SubFoot from '~components/SubFooter.vue'
+import axios from '~/plugins/axios'
+import SubNav from '../../components/SubNav.vue'
+import SubFoot from '../../components/SubFooter.vue'
 
 export default {
   components: {

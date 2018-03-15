@@ -310,10 +310,10 @@ section.mainswipe{
 
 .farm{
   @media #{$tab} {
-    background-image: url('https://supmot.imgix.net/superior_main_l.jpg');
+    background-image: url('https://supmot.imgix.net/superior_main_l.jpg?1234');
   }
   @media #{$phone} {
-    background-image: url('https://supmot.imgix.net/superior_main_s.jpg');
+    background-image: url('https://supmot.imgix.net/superior_main_s.jpg?1234');
   }
   background-size: cover;
   background-position: 50%;
@@ -419,7 +419,6 @@ section.mainswipe{
 .location{
   margin-top: -5em;
   background-color: $blue;
-  display: box;
   display: flex;
   overflow: hidden;
   padding-bottom: 8.5em;
@@ -482,7 +481,7 @@ section.mainswipe{
     }
     &:before{
       @media #{$tab} {
-        background: url('https://supmot.imgix.net/map.jpg');
+        background: url('https://supmot.imgix.net/map.jpg?1234');
       }
       background-position: center center;
       background-repeat-x: no-repeat;

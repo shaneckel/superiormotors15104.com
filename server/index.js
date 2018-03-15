@@ -1,5 +1,5 @@
-import Nuxt from 'nuxt'
 import express from 'express'
+import { Nuxt, Builder } from 'nuxt'
 
 import api from './api'
 
@@ -8,15 +8,26 @@ const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 3000
 
 app.set('port', port)
+
+// Import API Routes
 app.use('/api', api)
 
-async function start() {
-  let config = require('../nuxt.config.js')
-  config.dev = !(process.env.NODE_ENV === 'production')
-  const nuxt = new Nuxt(config)
-  app.use(nuxt.render)
-  app.listen(port, host)
-  console.log('sm15104 ' + host + ':' + port)
+// Import and Set Nuxt.js options
+let config = require('../nuxt.config.js')
+config.dev = !(process.env.NODE_ENV === 'production')
+
+// Init Nuxt.js
+const nuxt = new Nuxt(config)
+
+// Build only in dev mode
+if (config.dev) {
+  const builder = new Builder(nuxt)
+  builder.build()
 }
 
-start()
+// Give nuxt middleware to express
+app.use(nuxt.render)
+
+// Listen the server
+app.listen(port, host)
+console.log('sm15104 ' + host + ':' + port) // eslint-disable-line no-console
