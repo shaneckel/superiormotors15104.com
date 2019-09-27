@@ -8,6 +8,7 @@ const Home = () => {
         <aside className="top-menu">
           <p><a href="#reservation">reservation</a></p>
           <p><a href="#reservation">call</a></p>
+          <p><a href="https://www.toasttab.com/superior-motors/giftcards">gift cards</a></p>
           <p><Link href='/menu'><a>menu</a></Link></p>
           <p><Link href='/private'><a>private parties</a></Link></p>
         </aside>
@@ -103,6 +104,7 @@ const Home = () => {
       <article className="reservation misc skewleft">
         <section className="content">
           <h1>Misc</h1>
+          <p><a href="https://www.exploretock.com/superiormotors" className="inlineorange">Superior Motors Tock Events</a></p>
           <p><a href="https://www.toasttab.com/superior-motors/giftcards" className="inlineorange">Superior Motors gift cards</a></p>
           <p><a href="https://my.matterport.com/show/?m=wkt14cLxhfg&amp;utm_source=3" className="inlineorange">Virtual Tour of Superior Motors</a></p>
         </section>
@@ -185,6 +187,34 @@ const Home = () => {
           article.location .content{
             width: 100%;
             padding-bottom: 15%;
+          }
+        }
+        .top-menu{
+          max-width: 1000px;
+        }
+        .top-menu p {
+          margin-top: .6em;
+        }
+        .top-menu a{
+          padding: 1em;
+          font-size: .7em;
+          margin-left: 1.6em;
+          margin-top: .5em;
+          box-shadow: 1px 1px #1c3440;
+        }
+        @media only screen and (max-width:767px){
+          .top-menu p {
+            margin-top: .2em;
+          }
+          .top-menu a{
+            padding: .65em;
+            font-size: .5em;
+            margin-left: 1em;
+            margin-top: .1em;
+            box-shadow: 1px 1px #1c3440;
+          }
+          .svg-container{
+            padding: 8% 0;
           }
         }
         > article:before {
