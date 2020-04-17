@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Prismic from 'prismic-javascript'
+import { RichText } from 'prismic-reactjs'
+import { format } from 'date-fns'
+
+const apiEndpoint = 'https://superiormotors.prismic.io/api/v2'
+
+const Client = Prismic.client(apiEndpoint)
+
+function timeFix (arg) {
+  let date = arg
+  if(!date ) date = new Date()
+  return format(new Date(date), 'MMMM dd, yyyy')
+}
 
 const Home = () => {
+  const [doc, setDocData] = React.useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await Client.query(
+        Prismic.Predicates.at('document.type', 'frontpage'),
+        { pageSize: 1, 
+          orderings : '[document.last_publication_date desc]'
+        }
+      )
+      if (response) {
+        setDocData(response.results[0])
+      }
+    }
+    fetchData()
+  }, []);
+
+
   return (
     <main>
       <header className="feature">
@@ -45,7 +76,17 @@ const Home = () => {
           <p><a href="http://time.com/collection/worlds-greatest-places-2018/5366708/superior-motors-braddock-pennsylvania/" className="inlineorange">Time Magazine - World's Greatest Places</a></p>
           <p><a href="https://www.pittsburghmagazine.com/Pittsburgh-Magazine/June-2018/Best-New-Restaurant-of-2018-Superior-Motors/" className="inlineorange">Pittsburgh Magazine - Best New Restaurant of 2018</a></p>
         </section>
-      </article>
+      </article>      
+
+      { doc ?      
+          <article className="recent skewright">
+            <section className="content">
+              <h1>News <span>({timeFix(doc.data.date)})</span></h1>
+              {RichText.render(doc.data.text)}
+            </section>
+          </article>
+        : null
+      }
 
       <article className="hours skewright">
         <section className="content">
@@ -250,6 +291,24 @@ const Home = () => {
           outline: 1px solid transparent;
           position: relative;
         }
+        .recent span{
+          font-size: .5em;
+          font-family: Gotham Narrow SSm A,Gotham Narrow SSm B;
+          letter-spacing: normal;
+          font-weight: 400;
+        }
+        .recent {
+          background: #794b45; 
+          margin-top: -8.5em;
+          padding: 1.8em 0 6.5em;
+        }
+        .recent strong{
+          font-weight: 900;
+        }        
+        .recent em{
+          font-style: italic;
+        }
+
     `}</style>
     </main>
   )
